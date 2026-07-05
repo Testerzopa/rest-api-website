@@ -9,3 +9,34 @@ body{
     color: white;
     font-family: 'Times New Roman', Times, serif;
 }
+
+.member-header{
+    text-align: center;
+}
+
+.member-container{
+}
+
+.member-head{
+    margin-top: 15px;
+}
+
+.member-input-section{
+    margin-top: 20px;
+}
+
+.input-member{
+    padding: 10px;
+    border: none;
+}
+
+.member-input-radio{
+    margin-top: 15px;
+}
+
+.btn-submit{
+    padding: 15px;
+    margin-top: 20px;
+    border: none;
+    cursor: pointer;
+}
