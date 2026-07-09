@@ -12,8 +12,8 @@
     <div class="member-container">
         <h1 class="member-head">Save member name</h1>
         <div class="member-input-section">
-            <input class="input-member" type="text" placeholder="Enter member name">
-            <input class="input-member" type="number" placeholder="Enter member age">
+            <input id="input-name" class="input-member" type="text" placeholder="Enter member name">
+            <input id="input-age" class="input-member" type="number" placeholder="Enter member age">
 
             <div class="member-input-radio">
                 <label for="male">Male</label>
@@ -21,11 +21,13 @@
                 <label for="female">Female</label>
                 <input type="radio" name="gender" id="female" value="female">
             </div>
-            <button class="btn-submit">Done</button>
+            <button onclick="addMember()" class="btn-submit">Done</button>
         </div>
         
-    
-        
+    <ul id="listUser"></ul>
+
+
+        <script src="main.js"></script>
     </div>
    </div>
 
