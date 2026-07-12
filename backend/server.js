@@ -9,12 +9,28 @@ app.use(cors())
 let saveData = [];
 
 app.post('/', (req,res)=>{
-    saveData.push({name:req.body.name , age:req.body.age});
+    const newUsers = {
+        id:Date.now().toString(),
+        name:req.body.name,
+        age:req.body.age
+    }
+    saveData.push(newUsers);
     res.json({message:"เก็บข้อมูลเรียบร้อยแล้ว"})
 })
 
 app.get('/',(req,res)=>{
    res.json(saveData);
+})
+
+app.delete('/:id',(req,res)=>{
+    const targetId = req.params.id;
+    const someId = saveData.some(item => item.id === targetId)
+    if(!someId){
+        return res.status(404).json({massage:"หาข้อมูลไม่เจอ"})
+    }
+
+    saveData = saveData.filter(item => item.id !== targetId);
+    res.json({massage:"ลบข้อมูลเรียบร้อบแล้ว"})
 })
 
 // 5. สั่งให้เซิร์ฟเวอร์เริ่มทำงานและรอรับผู้ใช้งาน

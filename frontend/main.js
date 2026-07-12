@@ -9,7 +9,8 @@ async function addMember() {
             age:inputAge,
         })
     })
-    const data = await response.json()
+    const data = await response.json();
+    loadMember();
 }
 
 async function loadMember() {
@@ -19,6 +20,19 @@ async function loadMember() {
     userUI.innerText = "";
     user.forEach(user => {
         let li = document.createElement("li")
-        li.textContent = `ชื่อ: ${user.name} (${user.name})`;
+
+        li.innerHTML = `<span>ชื่อ: ${user.name} อายุ:${user.age}</span>
+        <button onclick="deleteMember('${user.id}')">ลบ</button>
+        `;
+        userUI.appendChild(li)
     });
+    
+}
+
+async function deleteMember(id) {
+    const response = await fetch(`http://localhost:3000/${id}`,{
+        method:"DELETE"
+    })
+    const data = await response.json()
+    loadMember();
 }
