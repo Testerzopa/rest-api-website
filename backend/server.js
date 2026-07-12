@@ -12,7 +12,8 @@ app.post('/', (req,res)=>{
     const newUsers = {
         id:Date.now().toString(),
         name:req.body.name,
-        age:req.body.age
+        age:req.body.age,
+        gender:req.body.gender,
     }
     saveData.push(newUsers);
     res.json({message:"เก็บข้อมูลเรียบร้อยแล้ว"})
